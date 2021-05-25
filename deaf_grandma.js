@@ -21,10 +21,7 @@ function deafGrandma() {
 
     if (speech == "") console.log("WHAT?!");
 
-    // tests for at least one lower case letter
-    else if (regexp.test(speech)) console.log("SPEAK UP, KID!");
-
-    else if (speech == "GOODBYE!") {
+    else if (speech.toUpperCase() == "GOODBYE!") {
       if (goodByeCount == 0) {
         goodByeCount++;
         console.log("LEAVING SO SOON?");
@@ -34,6 +31,10 @@ function deafGrandma() {
         return;
       }
     }
+
+    // tests for at least one lower case letter
+    else if (regexp.test(speech)) console.log("SPEAK UP, KID!");
+
 // assumes the input is all caps since no lower case letters were found by regular expression
     else console.log("NO, NOT SINCE 1946!");
   }
