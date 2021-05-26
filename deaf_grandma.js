@@ -1,28 +1,36 @@
-function deafGrandma(string) {
+var prompt = require('prompt');
+  prompt.start();
   
-  // Create a variable to keep track of how many GOODBYE! have been said.
-  let goodByeCounter = 0;
+  let counter = 0;
+
+  function deafGrandma() {
+  prompt.get(['input'], function (err, result) {
+    const input = result.input;
+
  
 
-  // Use if statements to go through the string and return the proper response.
-  if (string == null) {
+  
+  if (input == null) {
       console.log("WHAT?!");
   } else {
-    if (string == string.toLowerCase()) {
-      console.log("SPEAK UP, KID!"); 
+    if (input == input.toLowerCase()) {
+      console.log("SPEAK UP, KID!");
+      deafGrandma(); 
     } 
-    if (string == "GOODBYE!") {
-      goodByeCounter++;
+    if (input == "GOODBYE!") {
+      counter++;
       console.log("LEAVING SO SOON?")
-      console.log(goodByeCounter);
-    } if (string == "GOODBYE!" && goodByeCounter > 0) {
+      deafGrandma();
+    } if (input == "GOODBYE!" && counter > 0) {
       console.log("LATER, SKATER!");
     } else {
-    if (string == string.toUpperCase()) {
+    if (input == input.toUpperCase()) {
       console.log("NO, NOT SINCE 1946!")
+      deafGrandma();
       }
     } 
   }
 }
+  )}
 
-deafGrandma("GOODBYE!");
+  deafGrandma();
