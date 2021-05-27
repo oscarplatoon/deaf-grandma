@@ -1,22 +1,30 @@
-function deafGrandma(str) {
-  let lowerCaseLet = [/a-z/];
-  let upperCaseLet = [/A-Z/];
-  let talk = prompt("Talk to Grandma!");
-  if(str.length === 0){
-    console.log("WHAT?!");
-  } 
-  else if (str.includes(lowerCaseLet) === true){
-    console.log("SPEAK UP, KID!");
-  }
-  else if (str.includes(upperCaseLet) === true){
-    console.log("NO, NOT SINCE 1946!");
-  }
-  else if (str === "GOODBYE!"){
-    console.log("LEAVING SO SOON?")
-  } 
-  else {
-    console.log("LATER, SKATER!")
-  }
-}
+  let goodByeCount = 0;
+  var prompt = require('prompt');
+  prompt.start();
 
-deafGrandma('');
+  function deafGrandma() {
+    prompt.get(['input'], function (err, result){
+      const input = result.input;
+    if(input === '') {
+        console.log("WHAT?!")
+        deafGrandma()
+      } 
+    else if (input === input.toUpperCase()){
+      console.log("NO, NOT SINCE 1946!");
+      deafGrandma();
+    }
+    else if (input === "GOODBYE!" && goodByeCount === 1){
+      console.log("LATER, SKATER!")
+    }
+    else if (input === "GOODBYE!"){
+      console.log("LEAVING SO SOON?");
+      goodByeCount++
+    }
+    else {
+      console.log("SPEAK UP, KID!")
+    }
+    })
+  }
+  
+
+deafGrandma();
