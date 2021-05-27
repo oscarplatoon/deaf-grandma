@@ -28,9 +28,5 @@ def deaf_grandma():
 
         else:
             print("!?!?")
-       
-      #  elif upper_case_test == ("Goodbye!"):
-         #   print("SPEAK UP, KID!")
-
         
 deaf_grandma()
